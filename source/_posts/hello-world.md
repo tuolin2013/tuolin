@@ -1,38 +1,55 @@
 ---
-title: Hello World
+title: 我，47岁，前创业者：重回代码世界，寻求确定性
+date: 2025-11-23 10:00:00 # 请使用当前日期或发布日期
+tags: [重启, 程序员, 创业, 复盘, 独立站]
+categories: 职业重启
+keywords: 47岁重启, Hexo, 程序员自媒体, 打赏
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+### 引言：十年一梦，却道天凉好个秋
 
-### Create a new post
+我叫庹林，1978年生人。四十七岁。
 
-``` bash
-$ hexo new "My New Post"
-```
+十载春秋，一场创业，终究是一次巨大的 **`Runtime Exception`**。从深圳的 Java 架构师，到株洲辅料店的送货员，这巨大的 **`Rollback`** 过程，在外人看来是凋零。但我说，**“却道天凉好个秋。”**
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+人生如大型项目，既然系统崩溃，便当重新 **Commit**。我，程序员老庹，不惧重装。
 
-### Run server
+---
 
-``` bash
-$ hexo server
-```
+### 第一部分：黄金时代与人生的转折点
 
-More info: [Server](https://hexo.io/docs/server.html)
+那五年，技术是纯粹的。我每天打开电脑，第一件事就是连接 **Stack Overflow**。代码世界里，只有逻辑和效率。
 
-### Generate static files
+但到了 2014 年，我做了我人生中最重要的决定。我离开了深圳，不是为了更大的事业，而是为了更重要的责任：**陪孩子长大，陪父母变老**。
 
-``` bash
-$ hexo generate
-```
+我带着技术的傲慢，回乡企图用代码的逻辑，去约束市场的混沌。我一度想做**“李子柒”**那样的田园牧歌，但很快就被生存法则击碎。
 
-More info: [Generating](https://hexo.io/docs/generating.html)
+---
 
-### Deploy to remote sites
+### 第二部分：深坑与血泪复盘：为责任而战的十年
 
-``` bash
-$ hexo deploy
-```
+我最大的败笔，就是我将**技术人的傲慢**带进了战场。
 
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+我花了六个月设计了一套在我看来无懈可击的**微服务架构**，确保系统能够应对百万级并发，而当时我们连一百个用户都没有。我追求系统的“优雅”，却忽略了**“能跑起来、能赚钱”**比一切都重要。
+
+那十年，我的工作内容从抽象的架构，切换到具体的生存。我放下身段，开始**走乡串户卖核桃**，在街边**摆地摊卖凤爪**。我设计的系统架构再精妙，也比不过一个简单的地推流程。
+
+所有的挣扎和屈辱，都只为了一个目标：**撑到我儿子高考结束。**
+
+2023 年夏天，我儿子考上 **北京交通大学**。我完成了这十年最大的 **Commit**。但我的创业项目本身，也彻底进入了 **`Halt`** 状态。我才明白，技术只是工具，它必须为效率和生存服务。
+
+---
+
+### 第三部分：觉醒与重启：重构底层逻辑
+
+现在的我，在 **株洲芦淞服饰工业园的辅料店** 打工。我的 **Task** 目标不再是解决缓存穿透，而是**规划最短路径，确保辅料 JIT (Just-In-Time) 交付**。
+
+我才真正体会到，**真正的效率和生存法则，不在于 Kubernetes，而在于电瓶车上的每一分钟。**
+
+我决定，带着这份**接地气的、血淋淋的商业认知**，重新回到我唯一能掌控的世界——代码。
+
+麦克阿瑟说：“老兵不死，只是凋零。” 但我选择擦亮枪炮，重新回到战壕。我会把我的创业复盘、我的技术老底，以及我重学新技术的每一步，都在这里记录下来。
+
+我是老庹，一个正在重启的程序员。
+
+---
