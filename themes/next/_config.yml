@@ -279,7 +279,7 @@ reward_settings:
   animation: false
 
 reward:
-  wechatpay: /images/wechatpay.png
+  wechatpay: /images/reward/wechatpay.png
   #alipay: /images/alipay.png
   #paypal: /images/paypal.png
   #bitcoin: /images/bitcoin.png
