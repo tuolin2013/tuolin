@@ -97,7 +97,7 @@ tags:
 
 #### **4. YouTube Audio Library**
 
-`<img src="https://via.placeholder.com/60x60?text=YouTube+Audio+Library+Logo" alt="YouTube Audio Library Logo" width="60" height="60" style="vertical-align: middle;">`
+<img src="https://via.placeholder.com/60x60?text=YouTube+Audio+Library+Logo" alt="YouTube Audio Library Logo" width="60" height="60" style="vertical-align: middle;">
 
 * **资源类型：** 音乐/音效 (最安全)
 * **资源网址：** `https://www.youtube.com/audiolibrary`
