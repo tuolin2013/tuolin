@@ -33,5 +33,11 @@ npm install hexo-cli -g
 hexo init
 npm install
 
-2. NexT 主题安装与配置
+###2. NexT 主题安装与配置
 ​为确保主题文件能够被 GitHub 正确识别和上传，必须清理主题内的 Git 记录。
+# 1. 克隆主题文件到 themes/next 目录
+git clone [https://github.com/next-theme/hexo-theme-next](https://github.com/next-theme/hexo-theme-next) themes/next
+
+# 2. **关键步骤：删除主题内的 .git 文件夹 (避免 Gitlink 错误)**
+rm -rf themes/next/.git
+
