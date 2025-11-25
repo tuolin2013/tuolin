@@ -32,3 +32,6 @@ mkdir hexo-blog && cd hexo-blog
 npm install hexo-cli -g
 hexo init
 npm install
+
+2. NexT 主题安装与配置
+​为确保主题文件能够被 GitHub 正确识别和上传，必须清理主题内的 Git 记录。
