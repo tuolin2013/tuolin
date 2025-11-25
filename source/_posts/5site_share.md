@@ -60,7 +60,7 @@
 
 #### **1. Pexels Videos**
 
-<img src="https://via.placeholder.com/60x60?text=Pexels+Logo" alt="Pexels Logo" width="60" height="60" style="vertical-align: middle;">
+`<img src="https://via.placeholder.com/60x60?text=Pexels+Logo" alt="Pexels Logo" width="60" height="60" style="vertical-align: middle;">`
 
 * **资源类型：** 视频素材 (高清、通用)
 * **资源网址：** `https://www.pexels.com/videos/`
@@ -70,7 +70,7 @@
 
 #### **2. Mixkit**
 
-<img src="https://via.placeholder.com/60x60?text=Mixkit+Logo" alt="Mixkit Logo" width="60" height="60" style="vertical-align: middle;">
+`<img src="https://via.placeholder.com/60x60?text=Mixkit+Logo" alt="Mixkit Logo" width="60" height="60" style="vertical-align: middle;">`
 
 * **资源类型：** 视频/模板 (设计感强)
 * **资源网址：** `https://mixkit.com/`
@@ -80,7 +80,7 @@
 
 #### **3. Videvo**
 
-<img src="https://via.placeholder.com/60x60?text=Videvo+Logo" alt="Videvo Logo" width="60" height="60" style="vertical-align: middle;">
+`<img src="https://via.placeholder.com/60x60?text=Videvo+Logo" alt="Videvo Logo" width="60" height="60" style="vertical-align: middle;">`
 
 * **资源类型：** 视频/动效 (专业级航拍)
 * **资源网址：** `https://www.videvo.net/`
@@ -90,7 +90,7 @@
 
 #### **4. YouTube Audio Library**
 
-<img src="https://via.placeholder.com/60x60?text=YouTube+Audio+Library+Logo" alt="YouTube Audio Library Logo" width="60" height="60" style="vertical-align: middle;">
+`<img src="https://via.placeholder.com/60x60?text=YouTube+Audio+Library+Logo" alt="YouTube Audio Library Logo" width="60" height="60" style="vertical-align: middle;">`
 
 * **资源类型：** 音乐/音效 (最安全)
 * **资源网址：** `https://www.youtube.com/audiolibrary`
@@ -100,7 +100,7 @@
 
 #### **5. Pixabay**
 
-<img src="https://via.placeholder.com/60x60?text=Pixabay+Logo" alt="Pixabay Logo" width="60" height="60" style="vertical-align: middle;">
+`<img src="https://via.placeholder.com/60x60?text=Pixabay+Logo" alt="Pixabay Logo" width="60" height="60" style="vertical-align: middle;">`
 
 * **资源类型：** 音乐/音效 (一站式)
 * **资源网址：** `https://pixabay.com/zh/music/`
