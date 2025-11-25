@@ -1,6 +1,6 @@
 ---
-title: Hexo 博客在 Android Termux 上的终极部署教程（NexT 主题篇）
-date: 2025-11-25 07:15:00
+title: Hexo 博客在 Termux 上的终极实战教程（NexT 主题篇）
+date: 2025-11-25 07:15:00 
 tags:
   - Hexo
   - Termux
@@ -9,30 +9,26 @@ tags:
   - NexT
 ---
 
-# Hexo 博客在 Android Termux 上的终极部署教程（NexT 主题篇）
+# Hexo 博客在 Android Termux 上的终极实战教程（NexT 主题篇）
 
-> 经过多轮尝试和错误排除，本教程总结了在 **Termux (Android)** 环境下，从零开始搭建 Hexo 博客、使用 **NexT 主题** 并成功部署到 **Vercel** 的关键步骤和常见错误解决方案。
-
-## 🚀 核心思路：从本地到云端的四步流程
-
-我们的部署流程可以概括为：
-
-1.  **环境准备**：Termux 安装 Node.js 和 Git。
-2.  **本地构建**：创建 Hexo 项目并安装 NexT 主题。
-3.  **Git 推送**：将本地文件（特别是 NexT 主题文件）推送到 GitHub。
-4.  **云端部署**：Vercel 关联 GitHub 仓库并自动发布。
+> **前言：** 本教程总结了在 **Termux (Android)** 环境下，从零开始搭建 Hexo 博客、使用 **NexT 主题** 并成功部署到 **Vercel** 的全过程。与常规教程不同，本篇侧重于解决移动端部署时最常遇到的 **Gitlink 主题错误** 和 **网络超时** 等实战问题。
 
 ---
 
-## 第一步：环境搭建与 Hexo 初始化
+## 第一部分：核心部署步骤与代码（成功路径）
 
-确保 Termux 环境干净，并安装 Node.js 和 Git。
+本部分是 Hexo 博客从 Termux 部署到 Vercel 的标准、无错的完整流程。
 
-### 1. 安装 Node.js 和 Git
+### 1. 环境搭建与 Hexo 初始化
 
 ```bash
-# 1. 切换到更快的源（可选）
-# source <(curl -fsSL [https://git.io/JTS5i](https://git.io/JTS5i))
-
-# 2. 安装基本工具、Node.js 和 Git
+# 1. 安装 Node.js 和 Git
 pkg install nodejs git -y
+
+# 2. 创建项目目录并进入
+mkdir hexo-blog && cd hexo-blog
+
+# 3. 初始化 Hexo
+npm install hexo-cli -g
+hexo init
+npm install
