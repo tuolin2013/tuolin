@@ -151,7 +151,7 @@ avatar:
   # Replace the default image and set the url here.
   url: /images/avatar.jpg
   # If true, the avatar will be displayed in circle.
-  rounded: true
+  rounded: false
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
