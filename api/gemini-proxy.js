@@ -1,4 +1,5 @@
-// api/gemini-proxy.js
+// api/gemini-proxy.js 
+//
 
 // 确保使用 require 语法，避免 Vercel 编译问题
 const { GoogleGenAI } = require("@google/genai");
