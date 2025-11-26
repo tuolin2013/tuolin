@@ -1,8 +1,9 @@
 // api/gemini-proxy.js
 
-// 确保使用 require 语法，避免 Vercel 编译问题
+// 确保使用 require 语法
 const { GoogleGenAI } = require("@google/genai");
-const { GoogleAuth } = require('google-auth-library'); // 尽管这里没有直接使用，但依赖需要导入
+// 在这个最终版本中，我们不再需要 GoogleAuth，所以可以移除它的引用
+// const { GoogleAuth } = require('google-auth-library'); 
 
 // 1. 从环境变量中获取JSON密钥内容
 const SERVICE_ACCOUNT_JSON_CONTENT = process.env.SERVICE_ACCOUNT_JSON;
@@ -10,15 +11,12 @@ const SERVICE_ACCOUNT_JSON_CONTENT = process.env.SERVICE_ACCOUNT_JSON;
 let ai; // 声明客户端变量
 
 try {
-    const credentials = JSON.parse(SERVICE_ACCOUNT_JSON_CONTENT);
-    
-    // 强制使用提供的凭证来初始化客户端 (最鲁棒的方法)
-    ai = new GoogleGenAI({ 
-        auth: {
-            credentials,
-            // 使用 genai 专用 Scope，对应 IAM 中的角色
-            scopes: ['https://www.googleapis.com/auth/genai'] 
-        }
+    // 直接将 JSON 内容作为 credentials 参数传入
+    // 强制 SDK 使用这个凭证，绕过环境认证查找
+    ai = new GoogleGenAI({
+        credentials: JSON.parse(SERVICE_ACCOUNT_JSON_CONTENT),
+        // 虽然我们直接传入了credentials，但scopes也一并提供
+        scopes: ['https://www.googleapis.com/auth/genai'] 
     });
 
 } catch (e) {
