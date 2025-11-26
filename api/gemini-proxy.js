@@ -1,11 +1,13 @@
-import { GoogleGenAI } from "@google/genai";
-import { GoogleAuth } from 'google-auth-library'; // <--- 新增导入
+// api/gemini-proxy.js
+
+// 确保使用 require 语法，避免 Vercel 编译问题
+const { GoogleGenAI } = require("@google/genai");
+const { GoogleAuth } = require('google-auth-library');
 
 // 1. 从环境变量中获取JSON密钥内容
 const SERVICE_ACCOUNT_JSON_CONTENT = process.env.SERVICE_ACCOUNT_JSON;
 
-// 解析JSON内容以创建凭证
-let client;
+let ai; // 声明客户端变量
 
 try {
     const credentials = JSON.parse(SERVICE_ACCOUNT_JSON_CONTENT);
@@ -17,15 +19,65 @@ try {
     });
 
     // 创建一个已认证的客户端
-    client = new GoogleGenAI({ 
+    ai = new GoogleGenAI({ 
         auth, 
-        // 这里的apiKey是可选的，但设置auth是必须的
     });
 
 } catch (e) {
-    console.error("Authentication Setup Error: Could not parse SERVICE_ACCOUNT_JSON_CONTENT");
-    // 如果认证失败，强制退出或提供错误信息
-    client = null;
+    // 如果解析或认证失败，记录错误并设置客户端为 null
+    console.error("Authentication Setup Error:", e.message);
+    ai = null; 
 }
 
-// ... 剩下的代码 (export default async function handler(req, res)) ...
+// Vercel Serverless Function 入口
+module.exports = async (req, res) => {
+    // 设置 CORS 头部（如果需要跨域访问）
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    // 处理 OPTIONS 请求（CORS预检）
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
+    // 检查请求方法
+    if (req.method !== 'POST') {
+        return res.status(405).send('Method Not Allowed');
+    }
+
+    // 检查认证客户端是否成功创建
+    if (!ai) {
+        return res.status(500).json({
+            status: 'error',
+            message: 'Gemini Client Initialization Failed. Check Vercel logs for JSON parsing errors.'
+        });
+    }
+
+    try {
+        // 2. 从手机请求中解析出 Prompt JSON
+        const requestBody = req.body;
+        const promptContents = requestBody.contents;
+
+        // 3. 调用 Gemini API
+        const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash", // 默认使用快速模型
+            contents: promptContents,
+        });
+
+        // 4. 将 AI 结果返回给手机
+        res.status(200).json({
+            status: 'success',
+            script: response.text
+        });
+
+    } catch (error) {
+        // 5. 处理错误并返回失败信息
+        console.error('Gemini API Error:', error.message);
+        res.status(500).json({
+            status: 'error',
+            message: 'Failed to generate content: ' + error.message,
+            content: error.message
+        });
+    }
+};
