@@ -1,10 +1,5 @@
 // api/gemini-proxy.js
 
-// 强制 Vercel 部署到北美俄勒冈区域 (单个区域符合免费计划)
-export const config = {
-  runtime: 'nodejs'
-};
-
 // 确保使用 require 语法
 const { GoogleGenAI } = require("@google/genai");
 
