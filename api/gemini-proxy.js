@@ -2,8 +2,7 @@
 
 // 强制 Vercel 部署到北美俄勒冈区域 (单个区域符合免费计划)
 export const config = {
-  runtime: 'nodejs',
-  regions: ['pdx1'] // 仅保留一个区域
+  runtime: 'nodejs'
 };
 
 // 确保使用 require 语法
