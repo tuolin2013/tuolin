@@ -1,5 +1,4 @@
-// api/gemini-proxy.js 
-//
+// api/gemini-proxy.js
 
 // 确保使用 require 语法，避免 Vercel 编译问题
 const { GoogleGenAI } = require("@google/genai");
@@ -13,10 +12,11 @@ let ai; // 声明客户端变量
 try {
     const credentials = JSON.parse(SERVICE_ACCOUNT_JSON_CONTENT);
     
-    // 使用服务账号凭证进行认证
+    // 使用服务账号凭证进行认证 (使用 genai 专用 Scope)
     const auth = new GoogleAuth({
         credentials,
-        scopes: ['https://www.googleapis.com/auth/cloud-platform']
+        // 最终的认证 Scope，对应 IAM 中 Generative Language API User 角色
+        scopes: ['https://www.googleapis.com/auth/genai'] 
     });
 
     // 创建一个已认证的客户端
@@ -49,6 +49,7 @@ module.exports = async (req, res) => {
 
     // 检查认证客户端是否成功创建
     if (!ai) {
+        // 如果这里返回错误，说明 SERVICE_ACCOUNT_JSON 格式仍然有问题
         return res.status(500).json({
             status: 'error',
             message: 'Gemini Client Initialization Failed. Check Vercel logs for JSON parsing errors.'
@@ -74,6 +75,7 @@ module.exports = async (req, res) => {
 
     } catch (error) {
         // 5. 处理错误并返回失败信息
+        // 这里的错误通常是 API 调用失败（如权限、模型错误等）
         console.error('Gemini API Error:', error.message);
         res.status(500).json({
             status: 'error',
