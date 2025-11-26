@@ -1,32 +1,27 @@
 // api/gemini-proxy.js
 
-// 强制 Vercel 部署到北美区域，避免可能的网络问题
+// 强制 Vercel 部署到稳定区域
 export const config = {
   runtime: 'nodejs',
-  regions: ['pdx1', 'sfo1'] // 俄勒冈或旧金山，最稳定的区域
+  regions: ['pdx1', 'sfo1']
 };
 
 // 确保使用 require 语法
 const { GoogleGenAI } = require("@google/genai");
-// 移除对 'google-auth-library' 的依赖，使用最底层的credentials初始化
 
-// 1. 从环境变量中获取JSON密钥内容
-const SERVICE_ACCOUNT_JSON_CONTENT = process.env.SERVICE_ACCOUNT_JSON;
+// 从环境变量中获取 API Key
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 let ai; // 声明客户端变量
 
 try {
-    const credentials = JSON.parse(SERVICE_ACCOUNT_JSON_CONTENT);
-
-    // 强制使用提供的凭证来初始化客户端 (最底层的、最鲁棒的方法)
+    // 使用 API Key 初始化客户端 (最简单可靠的方式)
     ai = new GoogleGenAI({ 
-        credentials,
-        scopes: ['https://www.googleapis.com/auth/genai'] 
+        apiKey: GEMINI_API_KEY
     });
-
 } catch (e) {
-    // 如果解析或认证失败，记录错误并设置客户端为 null
-    console.error("Authentication Setup Error:", e.message);
+    // 如果初始化失败，设置客户端为 null
+    console.error("Client Initialization Error:", e.message);
     ai = null; 
 }
 
@@ -37,21 +32,18 @@ module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-    // 处理 OPTIONS 请求（CORS预检）
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
-
-    // 检查请求方法
     if (req.method !== 'POST') {
         return res.status(405).send('Method Not Allowed');
     }
 
-    // 检查认证客户端是否成功创建
-    if (!ai) {
+    // 检查 API Key 是否加载成功
+    if (!ai || !GEMINI_API_KEY) {
         return res.status(500).json({
             status: 'error',
-            message: 'Gemini Client Initialization Failed. Check Vercel logs for JSON parsing errors.'
+            message: 'Gemini Client Initialization Failed. API Key missing or client error.'
         });
     }
 
@@ -72,6 +64,7 @@ module.exports = async (req, res) => {
         });
 
     } catch (error) {
+        // 5. 处理错误并返回失败信息
         console.error('Gemini API Error:', error.message);
         res.status(500).json({
             status: 'error',
