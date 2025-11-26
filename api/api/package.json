@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@google/genai": "latest",
-    "google-auth-library": "latest"
-  }
-}
