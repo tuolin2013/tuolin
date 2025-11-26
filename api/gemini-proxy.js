@@ -2,7 +2,7 @@
 
 // 确保使用 require 语法，避免 Vercel 编译问题
 const { GoogleGenAI } = require("@google/genai");
-const { GoogleAuth } = require('google-auth-library');
+const { GoogleAuth } = require('google-auth-library'); // 尽管这里没有直接使用，但依赖需要导入
 
 // 1. 从环境变量中获取JSON密钥内容
 const SERVICE_ACCOUNT_JSON_CONTENT = process.env.SERVICE_ACCOUNT_JSON;
@@ -12,16 +12,13 @@ let ai; // 声明客户端变量
 try {
     const credentials = JSON.parse(SERVICE_ACCOUNT_JSON_CONTENT);
     
-    // 使用服务账号凭证进行认证 (使用 genai 专用 Scope)
-    const auth = new GoogleAuth({
-        credentials,
-        // 最终的认证 Scope，对应 IAM 中 Generative Language API User 角色
-        scopes: ['https://www.googleapis.com/auth/genai'] 
-    });
-
-    // 创建一个已认证的客户端
+    // 强制使用提供的凭证来初始化客户端 (最鲁棒的方法)
     ai = new GoogleGenAI({ 
-        auth, 
+        auth: {
+            credentials,
+            // 使用 genai 专用 Scope，对应 IAM 中的角色
+            scopes: ['https://www.googleapis.com/auth/genai'] 
+        }
     });
 
 } catch (e) {
@@ -32,7 +29,7 @@ try {
 
 // Vercel Serverless Function 入口
 module.exports = async (req, res) => {
-    // 设置 CORS 头部（如果需要跨域访问）
+    // 设置 CORS 头部
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
