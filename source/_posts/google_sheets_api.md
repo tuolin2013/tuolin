@@ -71,7 +71,8 @@ Gemini 返回生成的 Markdown 内容后，脚本立即执行以下写入操作
 这个状态管理的循环确保了流程的健壮性和可追溯性。
 
 > **🔍 代码参考：**
-> 完整的 Python 脚本（包含认证、错误处理和流程逻辑）已发布在我的 GitHub 仓库中，您可以访问 https://github.com/tuolin2013/tuolin查看并复制使用。
+> 完整的 Python 脚本（包含认证、错误处理和流程逻辑）已发布在我的 GitHub 仓库中，您可以访问 https://github.com/tuolin2013/tuolin
+查看并复制使用。
 
 ---
 
