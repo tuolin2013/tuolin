@@ -1,3 +1,13 @@
+---
+title: 用技术重塑内容工作流——我的 Gemini API 自动化中转站搭建指南
+date: 2025-11-27
+tags: 
+  - GeminiAPI
+  - GoogleSheets
+  - Python
+  - Colab
+  - AI工具
+---
 # 🚀 利用 Colab, Sheets 与 Gemini API 打造智能内容工厂：零门槛自动化内容架构工作流
 
 **标签 (Tags):** #GeminiAPI #GoogleSheets #Python自动化 #Colab #内容营销 #AI工具
