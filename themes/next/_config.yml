@@ -29,7 +29,7 @@ custom_file_path:
   #bodyEnd: source/_data/body-end.njk
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  #style: source/_data/styles.styl
+  style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -418,8 +418,8 @@ bookmark:
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
-  enable: false
-  permalink: https://github.com/yourname
+  enable: true
+  permalink: https://github.com/tuolin2013
 
 
 # ---------------------------------------------------------------
