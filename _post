@@ -1,0 +1,97 @@
+---
+title: MarkdownWeaver：手机上的极简生产力工具
+slug: intro-markdown-weaver
+date: 2025-12-05
+author: MarkdownWeaver Team
+tags:
+  - Android
+  - Markdown
+  - Productivity
+  - GitHub
+  - Gemini Design
+category: Applications
+description: 一款采用 Google Gemini 极简设计风格，支持 GitHub 同步与 PDF 导出的一站式移动端写作神器。
+version: 1.0.0
+---
+
+# 🧶 MarkdownWeaver
+
+> **编织你的思绪，随时随地。**
+> *Weave your thoughts, anywhere, anytime.*
+
+**MarkdownWeaver** 是一款专为 Android 平台打造的轻量级 Markdown 编辑器。不同于市面上臃肿的笔记应用，它专注于提供最纯粹的写作体验、最便捷的代码同步以及最现代化的视觉享受。
+
+无论是记录灵感、撰写技术文档，还是维护个人博客，MarkdownWeaver 都能在你的掌心完美胜任。
+
+---
+
+## ✨ 核心特性 (Features)
+
+### 1. 🎨 Gemini 风格沉浸式设计
+我们致敬了 Google Gemini 的现代 UI 设计语言：
+- **全屏沉浸**：透明状态栏与浅灰蓝背景融为一体，最大化可视面积。
+- **圆角卡片**：悬浮式的大圆角内容容器，视觉柔和，操作舒适。
+- **极简交互**：摒弃复杂的菜单栏，常用功能触手可及。
+
+### 2. 🚀 无缝 GitHub 同步
+专为开发者优化。无需复杂的 Git 命令，通过内置的轻量级 REST API 客户端：
+- **Token 认证**：安全连接你的 GitHub 仓库。
+- **一键 Push**：填写仓库名与路径，即可将本地文档直接推送到云端。
+- **零依赖**：底层采用原生网络库实现，轻快且稳定。
+
+### 3. 🎭 Style Weaver (样式编织器)
+文档颜值，由你定义。
+- **多样式切换**：内置 GitHub Light、Gemini Clean、Solarized Dark 等经典渲染主题。
+- **自定义 CSS**：支持动态添加自定义 CSS 代码，实时预览渲染效果。
+
+### 4. 📄 强大的导出能力
+不仅是写作，更是交付。
+- **HTML 复制**：一键将渲染好的 HTML 代码复制到剪贴板，方便粘贴到公众号或 CMS 系统。
+- **PDF 另存为**：调用系统级打印服务，将你的文档完美转换为 PDF 格式，保留所有样式细节。
+
+---
+
+## 🛠️ 技术栈 (Tech Stack)
+
+MarkdownWeaver 是一次在移动端进行 **MVP 架构** 与 **混合开发** 的最佳实践：
+
+* **Architecture**: Model-View-Presenter (MVP)，逻辑与视图彻底解耦。
+* **Core Logic**: Java (Android Native)。
+* **Rendering**: [CommonMark-Java](https://github.com/commonmark/commonmark-java) 引擎 + 高性能 WebView。
+* **Styling**: 动态 CSS 注入技术。
+* **Network**: 原生 `HttpURLConnection`，无第三方庞大网络库依赖，体积极小。
+
+---
+
+## 📱 界面预览 (Screenshots)
+
+| 编辑模式 (Editor) | 预览模式 (Preview) | 样式选择 (Styles) |
+| :---: | :---: | :---: |
+| 📝 **专注写作**<br>大圆角输入框<br>舒适的行间距 | 👁️ **实时渲染**<br>完美还原 MD 语法<br>支持表格与代码块 | 🎨 **主题切换**<br>下拉即换肤<br>支持自定义注入 |
+
+---
+
+## 🚀 快速开始 (Quick Start)
+
+1.  **编写**：在 `Editor` 标签页输入 Markdown 文本。
+2.  **预览**：点击 `Preview` 查看渲染效果。
+3.  **美化**：点击顶部下拉菜单，选择你喜欢的 CSS 风格。
+4.  **同步/导出**：
+    * 点击右上角 **Git Sync** 推送到 GitHub。
+    * 在预览页点击悬浮的 **PDF** 按钮保存到本地。
+
+---
+
+## 📝 待办清单 (Roadmap)
+
+- [x] 基础 Markdown 编辑与预览
+- [x] GitHub 文件上传 (PUT API)
+- [x] CSS 样式动态切换
+- [x] 导出为 HTML/PDF
+- [ ] 支持本地图片插入
+- [ ] 历史记录与草稿箱
+- [ ] 双栏实时预览模式 (平板适配)
+
+---
+
+*Made with ❤️ by AndroidIDE & Gemini.*
