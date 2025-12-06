@@ -3,7 +3,7 @@ title: "手搓生产力：我如何用 Gemini 在手机上开发了一款全功�
 date: 2025-12-07
 author: AI 全栈开发者
 tags: [Android, Gemini, App Development, AI Coding, Markdown]
-category: Tech Review
+categories: Tech Review
 description: 一次极其硬核的移动端开发实验。在没有电脑、只用手机 Termux + AndroidIDE 的极端环境下，依靠 Gemini 2.0 的强大算力，从零构建了一款集成 AI 写作、Git 同步和 PDF 导出的现代化编辑器——MarkdownWeaver。
 ---
 
