@@ -9,8 +9,6 @@ tags:
   - NexT
 ---
 
-# Hexo 博客在 Android Termux 上的终极实战教程（NexT 主题篇）
-
 > **前言：** 本教程总结了在 **Termux (Android)** 环境下，从零开始搭建 Hexo 博客、使用 **NexT 主题** 并成功部署到 **Vercel** 的全过程。本篇侧重于解决移动端部署时最常遇到的 **Gitlink 主题错误** 和 **网络超时** 等实战问题。
 
 ---
