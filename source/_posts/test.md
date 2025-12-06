@@ -13,7 +13,7 @@ cover: https://img.laotuo.top/avatar.jpg
 你好！这是一篇测试文章，用来验证 **Cloudflare R2 + 自定义域名** 是否配置成功。
 
 ### 1. 标准 Markdown 引用
-下面应该显示我的头像：
+``下面应该显示我的头像：
 
 ![我的头像](https://img.laotuo.top/avatar.jpg)
 
