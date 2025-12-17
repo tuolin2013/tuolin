@@ -5,15 +5,15 @@
 # Site
 title: 生如逆旅 一苇以航
 subtitle: 程序员老庹重启代码世界
-description: ''
-keywords:
+description: '专注技术积累与生活思考，记录程序员老庹的重启之路。分享编程、架构与随笔。'
+keywords: '程序员, 博客, Hexo, 架构, Java, Android, 随笔, 老庹'
 author: 程序员老庹
-language: en
-timezone: ''
+language: zh-CN
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://laotuo.top
+url: https://laotuo.top
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -102,3 +102,14 @@ theme: landscape
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# RSS Feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
