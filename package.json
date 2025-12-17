@@ -23,6 +23,7 @@
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.0.0",  
     "@google/genai": "latest",
-    "google-auth-library": "latest"
+    "google-auth-library": "latest",
+    "hexo-generator-feed": "^3.0.0"
   }
 }
