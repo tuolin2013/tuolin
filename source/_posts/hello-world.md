@@ -7,7 +7,7 @@ tags:
   - 创业复盘
 ---
 
-##十年一梦，我用 AI 捕获了那个 Runtime Exception
+十年一梦，我用 AI 捕获了那个 Runtime Exception
 
 大家好，我是庹林。
 1978年生人，今年47岁。
