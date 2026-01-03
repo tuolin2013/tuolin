@@ -51,7 +51,7 @@ pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --index-url [http
 # 3. 预先锁死 NumPy，这是保命第一条
 pip install "numpy<2.0" --upgrade pip
 ```
-第二步：部署 ComfyUI 与插件
+### 第二步：部署 ComfyUI 与插件
 ```
 # 1. 克隆 ComfyUI 主程序
 git clone [https://github.com/comfyanonymous/ComfyUI.git](https://github.com/comfyanonymous/ComfyUI.git) ComfyUI_Echo
@@ -68,7 +68,7 @@ git clone [https://github.com/Smthemex/ComfyUI_EchoMimic.git](https://github.com
 git clone [https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git](https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git)
 
 ```
-第三步：一键安装全套依赖 (核弹级修复)
+### 第三步：一键安装全套依赖 (核弹级修复)
 ​这条命令解决了 diffusers、transformers、mediapipe 之间的所有版本打架问题。
 
 ```
@@ -82,13 +82,13 @@ pip install "diffusers>=0.30.0" "transformers>=4.41.2" "huggingface-hub>=0.23.0"
 cd ../ComfyUI-VideoHelperSuite
 pip install -r requirements.txt
 ```
-第四步：补齐系统级工具 (解决 FFmpeg 报错)
+### 第四步：补齐系统级工具 (解决 FFmpeg 报错)
 ​VHS 节点需要调用系统底层的 FFmpeg，Python 包是不够的。
 ```
 apt-get update && apt-get install -y git-lfs ffmpeg
 
 ```
-第五步：下载模型与空间清理 (防止磁盘爆满)
+### 第五步：下载模型与空间清理 (防止磁盘爆满)
 ​这是最关键的一步。我们下载 V2 模型，并清理垃圾文件。
 
 ```
@@ -105,7 +105,7 @@ git clone [https://huggingface.co/BadToBest/EchoMimic](https://huggingface.co/Ba
 rm -rf pretrained_weights/.git
 
 ```
-第六步：启动服务
+### 第六步：启动服务
 ​注意： 因为更新了 PyTorch 底层，强烈建议先去 RunPod 控制台重启 Pod (Restart Pod)。
 ​重启回来后：
 
@@ -119,21 +119,3 @@ python main.py --listen
 
 ```
 
-运行配置指南 (节点避坑手册)
-​环境跑通后，如果在 ComfyUI 里配置不对，依然会报错（如 config.json not found）。请严格按照以下清单配置节点。
-​1. 核心节点：Echo_LoadModel
-​由于我们下载的是 V2 模型 (.pth)，但代码是 V3 版，必须手动指定版本。
-​version: 必须选 V2 (选 V3 会报错缺文件)。
-​infer_mode: 选 audio_drived (音频驱动)。
-​use_mmgp: 显存够大选 None，显存小选 LowRAM。
-​lowvram: 24G 显存用户选 false (速度更快)。
-​2. 连线逻辑 (Audio Drive 模式)
-​音频: 必须新建 Load Audio 节点，并连入 Echo_Predata 的 audio 端口。不连没声音，不动嘴。
-​视频: Echo_Predata 的 video_images 端口必须悬空 (不要连 Load Video，否则会干扰 V2 模型)。
-​3. 动物/宠物唱歌技巧
-​如果你用猫狗照片制作视频：
-​在 Echo_Sampler 节点中，将 facemask_ratio (面部遮罩) 调大至 0.15 或 0.2。
-​动物嘴巴动作幅度大，默认的 0.1 可能会导致嘴边有虚影。
-​结语
-​至此，你拥有了一套坚不可摧的数字人环境。这套配置既利用了 PyTorch 2.4 的高性能，又保留了 EchoMimic V2 模型的稳定性，是目前生产环境的最优解。
-​Happy Mimicking!
